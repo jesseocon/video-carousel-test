@@ -1,7 +1,11 @@
 $icon-font-path: '../fonts/';
 
 // bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+/*@import 'mixins';*/
+/*@import 'play_button';*/
+/*@import 'buttons';*/
+/*@import 'library';*/
 // endbower
 
 .browserupgrade {
@@ -27,6 +31,7 @@ $icon-font-path: '../fonts/';
    be namespaced under the id of the modal
    =========================================================== */
 #videoModal {
+  font-family: "Raleway", Arial, sans-serif;
   &.modal.fade {
     .modal-dialog {
       -webkit-transform: translate(0);
@@ -34,6 +39,80 @@ $icon-font-path: '../fonts/';
       transform: translate(0);
     }
   }
+
+  .video-container {
+  }
+  .close-button {
+    position: absolute;
+    width: 20px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+
+  /*.video-container {*/
+    /*.play-button {*/
+      /*$size: 80px;*/
+      /*$width: $size;*/
+      /*$height: $size;*/
+      /*$triangle-multiplier: .3;*/
+      /*$offset: ($width * -.5);*/
+      /*$center-coord: 50%;*/
+      /*$circle-radius: 50%;*/
+      /*$triangle-width: $height * $triangle-multiplier;*/
+      /*$triangle-height: ($triangle-width * 1.25);*/
+      /*$triangle-lat-offset: ($triangle-width * -.375);*/
+      /*$triangle-long-offset: ($triangle-height * -.5);*/
+      /*z-index: 10;*/
+
+      /*border-radius: $circle-radius;*/
+      /*position: absolute;*/
+      /*top: $center-coord;*/
+      /*left: $center-coord;*/
+      /*margin-top: $offset;*/
+      /*margin-left: $offset;*/
+      /*width: $width;*/
+      /*height: $width;*/
+      /*cursor: pointer;*/
+
+      /*.play-triangle {*/
+        /*left: $center-coord;*/
+        /*margin-left: $triangle-lat-offset;*/
+        /*margin-top: $triangle-long-offset;*/
+        /*position: absolute;*/
+        /*top: $center-coord;*/
+        /*width: $triangle-width;*/
+        /*height: $triangle-height;*/
+        /*z-index: 100;*/
+      /*}*/
+
+      /*.circle {*/
+        /*z-index: 1;*/
+        /*-webkit-transition: background-color .5s;*/
+        /*transition: background-color .5s;*/
+
+        /*border-radius: $circle-radius;*/
+        /*background-color: rgba(0, 0, 0, .2);*/
+        /*border: 2px solid #fff;*/
+        /*width: $width;*/
+        /*height: $width;*/
+        /*position: absolute;*/
+        /*top: $center-coord;*/
+        /*left: $center-coord;*/
+        /*overflow: hidden;*/
+        /*margin-top: $offset;*/
+        /*margin-left: $offset;*/
+      /*}*/
+
+      /*&:hover {*/
+        /*.circle {*/
+          /*background-color: rgba(0, 0, 0, .4);*/
+        /*}*/
+        /*.play-triangle {*/
+        /*}*/
+      /*}*/
+    /*}*/
+  /*}*/
 
   /* Variables */
   $black: #000000;
@@ -90,11 +169,7 @@ $icon-font-path: '../fonts/';
   /* ===============================================
      Buttons
    ================================================*/
-  .normal-button {
-    @extend .btn;
-    @extend .btn-lg;
-    margin-top: 7px;
-  }
+
   .btn.btn-lg {
     border: none;
     border-radius: 0px;
@@ -127,6 +202,12 @@ $icon-font-path: '../fonts/';
     }
   }
 
+  .normal-button {
+    @extend .btn;
+    @extend .btn-lg;
+    margin-top: 7px;
+  }
+
   .facebook-button,
   .auth-button,
   .cta-button {
@@ -141,8 +222,20 @@ $icon-font-path: '../fonts/';
     @extend .black;
   }
 
-  .cta-button {
+  .cta-button.btn.btn-lg {
     @extend .red;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
+    font-size: 24px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    &:hover {
+      background-color: #ab3939 !important;
+    }
   }
 
   .right {
@@ -160,6 +253,10 @@ $icon-font-path: '../fonts/';
 /* ==================================
     Modal Styles
    ===================================*/
+  [data-main-video-title="true"] {
+    text-align: left;
+    margin-top: 40px;
+  }
   .modal-dialog{
     margin-top: 10px;
     max-height: 18000px;
@@ -186,8 +283,9 @@ $icon-font-path: '../fonts/';
     }
   }
 
-  .video-carousel {
-    @extend .container !optional;
+  .header-wrapper {
+    @extend .clearfix;
+    margin-top: 30px;
   }
 
   .video-thumbs-container {
@@ -197,9 +295,12 @@ $icon-font-path: '../fonts/';
   }
 
   .video-image-thumb-wrapper {
+    &:last-child() {
+      margin-right: 0;
+    }
     cursor: pointer;
     float: left;
-    width: 250px;
+    width: 200px;
     margin-right: 30px;
     img{
       width: 100%

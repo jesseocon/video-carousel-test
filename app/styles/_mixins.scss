@@ -1,0 +1,47 @@
+@mixin bp($point) {
+  $extra-large-screen: "(max-width: 1824px)";
+  $large-screen: "(max-width: 1600px)";
+  $average-screen: "(max-width: 1200px)";
+  $medium-screen: "(max-width: 1024px)";
+  $small-screen: "(max-width: 991px)";
+  $tiny-screen: "(max-width: 768px)";
+  $iphone-six-plus-landscape: "(max-width: 737px)";
+  $iphone-five-landscape: "(max-width: 568px)";
+  $iphone-six-plus-portrait: "(max-width: 414px)";
+  $iphone-six-portrait: "(max-width: 375px)";
+  $iphone-five-portrait: "(max-width: 320px)";
+
+  @if $point == extra-large-screen {
+    @media #{$extra-large-screen} { @content; }
+  }
+  @else if $point == large-screen {
+    @media #{$large-screen} { @content; }
+  }
+  @else if $point == average-screen {
+    @media #{$average-screen} { @content;}
+  }
+  @else if $point == medium-screen {
+    @media #{$medium-screen} { @content;}
+  }
+  @else if $point == small-screen {
+    @media #{$small-screen} { @content;}
+  }
+  @else if $point == tiny-screen {
+    @media #{$tiny-screen} { @content;}
+  }
+  @else if $point == iphone-six-plus-landscape {
+    @media #{$iphone-six-plus-landscape} { @content;}
+  }
+  @else if $point == iphone-six-plus-portrait {
+    @media #{$iphone-six-plus-portrait} { @content;}
+  }
+  @else if $point == iphone-six-portrait {
+    @media #{$iphone-six-portrait} { @content;}
+  }
+  @else if $point == iphone-five-portrait {
+    @media #{$iphone-five-portrait} { @content;}
+  }
+  @else if $point == iphone-five-landscape {
+    @media #{$iphone-five-landscape} { @content;}
+  }
+}

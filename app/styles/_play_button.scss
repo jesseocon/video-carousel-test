@@ -1,0 +1,78 @@
+// Abstraction to extend
+@mixin play-button($size: 160px) {
+  $width: $size;
+  $height: $size;
+  $triangle-multiplier: .3;
+  $offset: ($width * -.5);
+  $center-coord: 50%;
+  $circle-radius: 50%;
+  $triangle-width: $height * $triangle-multiplier;
+  $triangle-height: ($triangle-width * 1.25);
+  $triangle-lat-offset: ($triangle-width * -.375);
+  $triangle-long-offset: ($triangle-height * -.5);
+  z-index: 10;
+
+  border-radius: $circle-radius;
+  position: absolute;
+  top: $center-coord;
+  left: $center-coord;
+  margin-top: $offset;
+  margin-left: $offset;
+  width: $width;
+  height: $width;
+  cursor: pointer;
+
+  .play-triangle {
+    left: $center-coord;
+    margin-left: $triangle-lat-offset;
+    margin-top: $triangle-long-offset;
+    position: absolute;
+    top: $center-coord;
+    width: $triangle-width;
+    height: $triangle-height;
+    z-index: 100;
+  }
+
+  .circle {
+    z-index: 1;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
+
+    border-radius: $circle-radius;
+    background-color: rgba(0, 0, 0, .2);
+    border: 2px solid #fff;
+    width: $width;
+    height: $width;
+    position: absolute;
+    top: $center-coord;
+    left: $center-coord;
+    overflow: hidden;
+    margin-top: $offset;
+    margin-left: $offset;
+  }
+
+  &:hover {
+    .circle {
+      background-color: rgba(0, 0, 0, .4);
+    }
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+.play-button {
+  @include play-button(165px);
+  /* =======================================
+    IPAD - Portrait - Inclusive
+   ========================================*/
+  @include bp('tiny-screen') {
+    @include play-button(80px);
+  }
+  /* ========================================
+     IPHONE 6 PLUS PORTRAIT
+     ====================================== */
+  @include bp('iphone-six-plus-portrait') {
+    @include play-button(60px);
+  }
+}

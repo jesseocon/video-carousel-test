@@ -1,0 +1,90 @@
+@import 'variables';
+.button-holder {
+  background-color: $gray-dark;
+  min-height: 180px;
+  position: relative;
+}
+#library {
+
+  .color-swatch {
+    height: 50px;
+  }
+
+  .color-swatch-black {
+    @extend .color-swatch;
+    background-color: $black;
+  }
+
+  .color-swatch-blackish {
+    @extend .color-swatch;
+    background-color: $blackish;
+  }
+
+  .color-swatch-blue-gray {
+    @extend .color-swatch;
+    background-color: $blue-gray;
+  }
+
+  .color-swatch-blue-facebook {
+    @extend .color-swatch;
+    background-color: $blue-facebook;
+  }
+
+  .color-swatch-red {
+    @extend .color-swatch;
+    background-color: $red;
+  }
+
+  .color-swatch-gray-light {
+    @extend .color-swatch;
+    background-color: $gray-light;
+  }
+
+  .color-swatch-gray-27 {
+    @extend .color-swatch;
+    background-color: $gray-27;
+  }
+
+  .color-swatch-gray-dark {
+    @extend .color-swatch;
+    background-color: $gray-dark;
+  }
+
+  .color-swatch-gray-darkest {
+    @extend .color-swatch;
+    background-color: $gray-darkest;
+  }
+
+
+  .color-swatch-gray-charcoal {
+    @extend .color-swatch;
+    background-color: $gray-charcoal;
+  }
+
+  .color-swatch-gray-black-button-border {
+    @extend .color-swatch;
+    background-color: $gray-black-button-border;
+  }
+
+  .color-swatch-gray-header-border {
+    @extend .color-swatch;
+    background-color: $gray-header-border;
+  }
+
+  .color-swatch-white {
+    @extend .color-swatch;
+    background-color: $white;
+  }
+
+  .color-swatch-off-white {
+    @extend .color-swatch;
+    background-color: $off-white;
+  }
+
+  .color-swatch-label {
+    color: #000000;
+    min-height: 50px;
+  }
+
+}
+
